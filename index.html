@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Text driven 3D Neural Head model generation.">
+  <meta name="keywords" content="CLIP, text-to-3D,parametric models, NPHM, UV Parameterization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CLIP-Head: Text-Guided Generation of Textured Neural Parametric 3D Head Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">LightHeadEd: Relightable & Editable Head Avatars from a Smartphone</h1>
+          <h1 class="subtitle has-text-centered"> </h1>
+          <!-- <h1 class="subtitle has-text-centered">SIGGRAPH Asia 2023 Technical Communications</h1> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <!-- <a href="https://keunhong.com">Pranav Manu</a><sup>1</sup>,</span> -->
+              Pranav Manu<sup>1</sup>,</span>  
+            <span class="author-block">
+              <a href="https://sarcastitva.me/">Astitva Srivastava</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="">Amit Raj</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Varun Jhampani</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">PJ Narayanan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://research.iitj.ac.in/researcher/avinash-sharma">Dr. Avinash Sharma</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">CVIT, International Institute of Information Technology, Hyderabad<sup>1</sup></span>
+            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Google Research</span><sup>2</sup>
+            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Stability AI</span><sup>3</sup>
+            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Supplementary</span>
+                </a>
+                <!-- <span class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Supplementary (Coming Soon)</span>
+                </span> -->
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            <!-- </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+    
+  <div class="hero-body">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <!-- <h2 class="title is-3">Method Figure</h2> -->
+            <image >
+              <img src="./static/images/teaser_low.png" alt="Teaser" width="75%">
+            </image>
+        </div>
+      </div>
+      <div class="container is-max-desktop">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/base/adhiraj.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/base/ayan.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/base/chirag.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/aditya.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!-- <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/5_shape.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/6_shape.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/7_shape.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/8_shape.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+      </div>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">LightHeadEd</span> can generate 3D Relightable and Editable Head Avatars.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <!-- <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/relight/relit_adhiraj1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/relit_ayan1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/relit_aditya1.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+         <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/relit_adhiraj2_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/relit_ayan2_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/relit_aditya2_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/relit_adhiraj2_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/relit_ayan2_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/relit_aditya2_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/relit_adhiraj2_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/relit_ayan2_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/relit_aditya2_3.mp4"
+                    type="video/mp4">
+          </video>
+        </div> 
+        
+        <!-- <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/aditya_relit_smooth.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+        <!-- 
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/ayan_relight_single2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/relight/ayan_relight_pink.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+        <!-- <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+
+          <p>
+            We propose <span class="dnerf">LightHeadEd</span>,  a novel, cost-effective approach for creating high-005
+            quality relightable head avatars using only a smartphone equipped with polaroid filter. Our approach involves simultaneously
+            capturing cross-polarized and parallel-polarized video streams in a dark room with a single point-light
+            source, enabling the separation of skin's diffuse and specular components during dynamic facial performances. We
+            introduce a hybrid representation that embeds 2D Gaussian Splats (2DGS) in the UV space of a parametric head
+            model, facilitating efficient real-time rendering while preserving high-fidelity geometric details. Our learning-based
+            neural analysis-by-synthesis pipeline decouples pose and expression-dependent geometrical offsets from appearance,
+            decomposing the surface into albedo, normal, and specular UV texture maps without requiring pre-trained texture
+            decomposition models. 
+          </p>
+
+          <p>
+            We collect a dataset of 30 subjects performing diverse facial expressions and head movements
+            using the proposed capture process. Our approach aims to bring scalability to polarized facial performance capture
+            while significantly reducing the complexity and cost of the setup, democratizing high-quality relightable head avatar creation.   
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- <h2 class="title is-3">Method Figure</h2> -->
+        <div class="publication-video">
+          <image >
+            <img src="./static/images/pipeline.png" alt="LightHeadEd" width="100%">
+          </image>
+        </div>
+        <image >
+          <img src="./static/images/encdec.png" alt="features" width="100%">
+        </image>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Learnt Texture Maps</h2>
+          <p class="content has-text-justified">
+            All attributes of our head avatar are learnt in the texture space, which allows us to relight and edit the head avatars.
+          </p>
+            <image >
+              <img src="./static/images/texmaps.png" alt="results1" width="100%">
+            </image>
+            
+            
+        </div>
+        <div class="content">
+          <h2 class="title is-3">Extended Results</h2>
+          <image >
+            <img src="./static/images/qual_extended_compress.jpg" alt="results1" width="100%">
+          </image>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="section">
+  <!-- <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+
+        <image >
+          <img src="./static/images/qual_extended_compress.jpg" alt="results1" width="75%">
+        </image>
+
+    </div>
+  </div> -->
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Shape Editing</h2>
+          <p>
+            Our Method allows us to edit the facial structure, by changing the shape of the underlying flame head
+          </p>
+          <section class="hero is-light is-small">
+            <div class="hero-body">
+              <div class="container">
+                <div id="results-carousel" class="carousel results-carousel">
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                      <source src="./static/videos/shape/adhiraj_large_h264.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                      <source src="./static/videos/relight/aditya_large_h264.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+          
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                      <source src="./static/videos/relight/ayan_large_h264.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+          
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                      <source src="./static/videos/relight/adhiraj_smol_h264.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                      <source src="./static/videos/relight/aditya_smol_h264.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                      <source src="./static/videos/relight/ayan_smol_h264.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/raipranav384" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <!-- <p style="text-align: center">
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p> -->
+          <p style="text-align: center">
+            Source Code borrowed from <a href="https://github.com/keunhong"> Keunhong Park</a>'s   
+            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies website</a>.
+            <!-- Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website. -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
