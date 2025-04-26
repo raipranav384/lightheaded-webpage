@@ -1,196 +1,739 @@
-body {
-  font-family: 'Noto Sans', sans-serif;
+/* === Enhanced Visual Theme === */
+
+:root {
+    /* Color Palette (Adjust as needed) */
+    --primary-color: #2c3e50;   /* Dark Blue/Grey */
+    /* --secondary-color: #3498db;  */
+    --secondary-color: #0093E9; /* Bright Blue */
+    /*--accent-color: #e74c3c;    /* Red */
+    --accent-color: #80D0C7;    /* Red */
+    --background-color: #ffffff;/* Very Light Grey */
+    --card-background: #ffffff; /* White */
+    --text-color: #34495e;      /* Dark Grey/Blue */
+    --text-light: #7f8c8d;     /* Medium Grey */
+    --border-color: #dee2e6;    /* Light Grey Border */
+    --light-gray-bg: #ecf0f1;   /* Light grey for tags/subtle backgrounds */
+  
+    /* Fonts (Using the ones you specified) */
+    --header-font: 'Google Sans', sans-serif;
+    --body-font: 'Noto Sans', sans-serif;
+  
+    /* Common Values */
+    --border-radius: 8px;
+    --border-radius-sm: 4px;
+    --transition-speed: 0.3s;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 20px rgba(0,0,0,0.12);
+    scroll-behavior: smooth;
+  
 }
+  
+  /* === Base Styles === */
+  body {
+    font-family: var(--body-font);
+    line-height: 1.7; /* Improved readability */
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    font-size: 16px; /* Base font size */
+  }
+  
+  /* === Typography === */
+  h1, h2, h3, h4, h5, h6,
+  .publication-title { /* Apply header font to titles */
+    font-family: var(--header-font);
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  
+  .section {
+    padding-top: 0.5rem;    /* Adjust this value down (e.g., 10px, 0.5rem, 0) */
+    padding-bottom: 0.5rem; /* Adjust this value down */
+  
+    /* You might have other styles here like background-color, etc. */
+    /* You might also need to adjust existing padding rules */
+  }
 
+  .publication-title {
+    font-size: 2.5rem; /* Larger title */
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block; /* Needed for ::after positioning */
+    padding-bottom: 0.5rem; /* Space for the underline */
+  }
+  
+  /* Decorative underline for the main title */
+  .publication-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Center align */
+    transform: translateX(-50%); /* Center align */
+    width: 80px; /* Or adjust as needed */
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    border-radius: 2px;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+  }
+  
+  a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+  }
+  
+  a:hover {
+    color: var(--accent-color);
+    text-decoration: underline; /* Keep simple underline for general links */
+  }
+  
+  /* === Wrapper & Layout === */
+  #wrapper {
+    width: 920px;
+    max-width: 95%; /* Prevent overflow on smaller screens before breakpoint */
+    margin: 2rem auto; /* Add vertical margin */
+    padding: 2rem; /* Add padding */
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    box-sizing: border-box;
+  }
+  
+  #home1, #home2 {
+    width: 47.5%;
+    /* height: 300px; /* Avoid fixed heights if possible */
+    min-height: 250px; /* Use min-height instead */
+    float: left;
+    margin-bottom: 1rem; /* Add margin for responsive stacking */
+    padding: 1.5rem; /* Add padding */
+    box-sizing: border-box;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    overflow: hidden; /* Ensure content stays within rounded corners */
+  }
+  
+  #home1 {
+    margin-right: 5%;
+  }
+  
+  #home1:hover, #home2:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .clear {
+    clear: both;
+  }
+  
+  /* === Header / Teaser Section === */
+  .teaser {
+    /* font-family: var(--header-font); /* Already set for headings */
+    padding: 1rem 0; /* Add some vertical padding */
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+  }
+  
+  .teaser .hero-body {
+    padding-top: 0;
+    padding-bottom: 2rem; /* Slightly reduced */
+  }
+  
+  .dnerf {
+    font-variant: small-caps;
+    font-weight: bold; /* Ensure it's bold */
+    /* Optional: Add a gradient or special color */
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.5px;
+    font-size: 1.1em; /* Slightly larger */
+  }
+  
 
-.footer .icon-link {
-    font-size: 25px;
-    color: #000;
-}
-
-.link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.dnerf {
-  font-variant: small-caps;
-}
-
-
-.teaser .hero-body {
-  padding-top: 0;
-  padding-bottom: 3rem;
-}
-
-.teaser {
-  font-family: 'Google Sans', sans-serif;
-}
-
-
-.publication-title {
-}
-
-.publication-banner {
-  max-height: parent;
-
-}
-
-.publication-banner video {
-  position: relative;
-  left: auto;
-  top: auto;
-  transform: none;
-  object-fit: fit;
-}
-
-.publication-header .hero-body {
-}
-
-.publication-title {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-authors {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-venue {
-    color: #555;
-    width: fit-content;
-    font-weight: bold;
-}
-
-.publication-awards {
-    color: #ff3860;
-    width: fit-content;
-    font-weight: bolder;
-}
-
-.publication-authors {
-}
-
-.publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
-}
-
-.publication-authors a:hover {
-    text-decoration: underline;
-}
-
-.author-block {
-  display: inline-block;
-}
-
-.publication-banner img {
-}
-
-.publication-authors {
-  /*color: #4286f4;*/
-}
-
-.publication-video {
+  
+  /* === Publication Details === */
+  .publication-authors {
+    font-family: var(--header-font); /* Consistent header font */
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-light); /* Slightly lighter text for authors */
+    line-height: 1.6;
+  }
+  
+  .author-block {
+    display: inline-block;
+    margin-right: 8px; /* Space before the separator */
+    margin-bottom: 5px; /* Allow wrapping */
+    position: relative;
+  }
+  
+  /* Separator between authors */
+  .author-block:not(:last-child)::after {
+    content: "•";
+    display: inline-block; /* Treat like a character */
+    margin-left: 8px; /* Space after the separator */
+    color: var(--text-light);
+    opacity: 0.7;
+    font-size: 0.9em; /* Slightly smaller */
+  }
+  
+  .publication-authors a {
+     color: var(--secondary-color) !important; /* Override Bulma potentially */
+     font-weight: 500; /* Make names stand out slightly */
+     border-bottom: 1px dashed var(--secondary-color); /* Subtle underline */
+     transition: all var(--transition-speed) ease;
+     padding-bottom: 1px;
+  }
+  
+  .publication-authors a:hover {
+      color: var(--accent-color) !important;
+      text-decoration: none; /* Remove default underline on hover */
+      border-bottom-style: solid; /* Make underline solid on hover */
+      border-bottom-color: var(--accent-color);
+  }
+  
+  /* Venue and Awards as Tags/Badges */
+  .publication-venue,
+  .publication-awards {
+      display: inline-block; /* Keep them inline */
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--border-radius-sm);
+      font-size: 0.9rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem; /* Allow wrapping */
+      line-height: 1.4; /* Adjust line height for badges */
+      width: auto; /* Remove fixed width */
+  }
+  
+  .publication-venue {
+      background-color: var(--light-gray-bg);
+      color: var(--text-color);
+      font-weight: 500; /* Medium weight */
+      border: 1px solid var(--border-color);
+  }
+  
+  .publication-awards {
+      background-color: var(--accent-color);
+      color: white;
+      font-weight: 600; /* Bolder */
+  }
+  
+  /* === Media Elements (Banner, Video, Images) === */
+  .publication-banner,
+  .publication-video,
+  .results-carousel .item,
+  .interpolation-panel {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden; /* Crucial for border-radius on content */
+    margin: 2rem 0; /* Consistent vertical spacing */
+    border: 1px solid var(--border-color);
+    position: relative; /* Needed for pseudo-elements */
+    background-color: var(--card-background); /* Ensure background for items */
+  }
+  
+  /* Optional: Add a subtle top border gradient */
+  .publication-banner::before,
+  .publication-video::before,
+  .results-carousel .item::before,
+  .interpolation-panel::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    z-index: 2; /* Above content */
+    opacity: 0.8;
+  }
+  
+  .publication-banner {
+    /* max-height: parent; /* Avoid this unless parent has fixed height */
+    /* Use aspect-ratio if possible, or manage height via content */
+  }
+  
+  .publication-banner img,
+  .publication-banner video,
+  .publication-body img,
+  .results-carousel video,
+  .interpolation-panel .interpolation-image {
+    display: block; /* Remove extra space below images/videos */
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 0; /* Remove radius if parent has overflow:hidden */
+    transition: transform var(--transition-speed) ease;
+  }
+  
+  /* Subtle zoom effect on hover */
+  .publication-banner:hover img,
+  .publication-banner:hover video,
+  .publication-body img:hover,
+  .results-carousel .item:hover video,
+  .interpolation-panel:hover .interpolation-image {
+    transform: scale(1.02);
+  }
+  
+  .publication-banner video {
+    /* object-fit: fit; /* 'fit' is not a valid value, use 'contain' or 'cover' */
+    object-fit: cover; /* Often better for banners */
+    /* Removed position/transform as they weren't doing anything here */
+  }
+  
+  /*.publication-video {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    /* border-radius handled by parent */
+  /*}*/
 
+  .publication-video {
+    position: relative; /* Keep for absolute positioning of iframe */
+    width: 100%;
+    /* REMOVE height: 0; */
+    /* REMOVE padding-bottom: 56.25%; */
+  
+    /* ADD aspect-ratio property */
+    /* aspect-ratio: 16 / 9; Provide a common default fallback. */
+                          /* The browser will attempt to use the iframe's */
+                          /* intrinsic ratio if available, overriding this. */
+                          /* You could use 4 / 3 or 1 / 1 as alternatives */
+  
+    /* ADD background color for letterboxing/pillarboxing */
+    background-color: var(--background-color); /* Black background */
+  
+    /* Keep other styles */
     overflow: hidden;
-    border-radius: 10px !important;
-}
-
-.publication-video iframe {
+    border-radius: var(--border-radius); /* Removed !important, try without it first */
+    box-shadow: var(--shadow-md);
+    margin: 2rem 0;
+    border: 1px solid var(--border-color);
+    /* Optional ::before element for top border */
+  }
+  
+  .publication-video iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-.publication-body img {
-}
-
-.results-carousel {
-  overflow: hidden;
-}
-
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  padding: 0;
-  font-size: 0;
-}
-
-.results-carousel video {
-  margin: 0;
-}
-
-
-.interpolation-panel {
-  background: #f5f5f5;
-  border-radius: 10px;
-}
-
-.interpolation-panel .interpolation-image {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.interpolation-video-column {
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-#interpolation-image-wrapper {
-  width: 100%;
-}
-#interpolation-image-wrapper img {
-  border-radius: 5px;
-}
-
-#wrapper { 
-  width: 920px; 
-  height: auto; 
-  margin: 0 auto;
-} 
-#home1 { 
-  width: 47.5%; 
-  height: 300px; 
-  float: left; 
-  margin-right: 5%;
-} 
-
-#home2 { 
-  width: 47.5%; 
-  height: 300px; 
-  float: left; 
-}
-
-.clear{
-  clear: both;
-}
-
-@media (max-width:767px) {
-  #wrapper{
-      width: 100%;
-      height: auto;
+    border: 0; /* Remove iframe border */
   }
-  #home1 {
-      width: 100%;
-      height: auto;
-      float: none;
+  
+  .publication-body img {
+    max-width: 80%; /* Slightly smaller max-width for body images */
+    margin: 1.5rem auto; /* Center images */
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-sm); /* Lighter shadow for inline images */
   }
-  #home2 {
-      width: 100%;
-      height: auto;
-      float: none;
+  
+  /* === Carousel === */
+  .results-carousel {
+    overflow: hidden; /* Keep this */
+    padding: 1rem 0; /* Add padding around the carousel */
   }
-}
+  
+  .results-carousel .item {
+    margin: 0.5rem; /* Consistent margin */
+    /* border, radius, shadow handled by common rule above */
+    font-size: 0; /* Keep this to remove whitespace */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  }
+  
+  .results-carousel .item:hover {
+    transform: translateY(-4px) scale(1.01); /* Lift and slightly enlarge */
+    box-shadow: var(--shadow-lg); /* Increase shadow */
+  }
+  
+  .results-carousel video {
+    margin: 0; /* Keep this */
+    /* width, display handled by common rule */
+  }
+  
+  /* === Interpolation Panel === */
+  .interpolation-panel {
+    background-color: var(--background-color); /* Slightly different background */
+    padding: 1.5rem; /* Add padding */
+    /* border, radius, shadow handled by common rule */
+  }
+  
+  .interpolation-panel .interpolation-image {
+    width: 100%;
+    /* radius handled by common rule */
+    margin-bottom: 1rem; /* Space below image */
+  }
+  
+  #interpolation-image-wrapper {
+    width: 100%;
+    margin-bottom: 1rem; /* Space below image */
+  }
+  #interpolation-image-wrapper img {
+    /* radius handled by common rule */
+    display: block;
+    width: 100%;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Basic Slider Styling (Customize further if using a library) */
+  .interpolation-panel .slider {
+    margin: 1rem 0 !important; /* Ensure margin */
+    appearance: none; /* Override default look */
+    width: 100%;
+    height: 8px;
+    background: var(--light-gray-bg);
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  /* Thumb styling (basic example) */
+  .interpolation-panel .slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+  }
+  .interpolation-panel .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  
+  /* === Footer === */
+  .footer {
+    background-color: var(--primary-color);
+    color: #ecf0f1; /* Light text on dark background */
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+  
+  .footer .icon-link {
+    font-size: 28px; /* Slightly larger icons */
+    color: #ecf0f1; /* Initial light color */
+    margin: 0 0.75rem; /* Space out icons */
+    opacity: 0.8;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease, opacity var(--transition-speed) ease;
+  }
+  
+  .footer .icon-link:hover {
+    color: var(--accent-color); /* Accent color on hover */
+    opacity: 1;
+    transform: scale(1.1); /* Slight scale effect */
+  }
+  
+  /* Links within blocks (if needed, style like buttons) */
+  .link-block a {
+    display: inline-block; /* Behave like buttons */
+    margin: 5px;
+    padding: 8px 16px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: all var(--transition-speed) ease;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .link-block a:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* === Media Queries === */
+  @media (max-width: 992px) {
+    /* Adjustments for slightly smaller desktops if needed */
+    #wrapper {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    .publication-title {
+        font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    body {
+      font-size: 15px; /* Slightly smaller base font on mobile */
+    }
+    #wrapper {
+        width: 100%; /* Full width */
+        margin: 1rem auto; /* Reduce vertical margin */
+        padding: 1rem; /* Reduce padding */
+        border-radius: 0; /* Optional: remove radius for edge-to-edge */
+        box-shadow: none; /* Optional: remove shadow */
+    }
+    #home1, #home2 {
+        width: 100%;
+        float: none;
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 1.5rem; /* Consistent bottom margin */
+        min-height: auto; /* Remove min-height */
+    }
+    .publication-title {
+      font-size: 1.8rem; /* Smaller title on mobile */
+    }
+    .publication-authors {
+      font-size: 1rem;
+    }
+    .publication-body img {
+      max-width: 100%; /* Allow body images full width */
+    }
+  }
+
+/* === Flair Additions === */
+
+/* Subtle Animated Gradient Background for Body */
+@keyframes subtleGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  body::before { /* Using ::before for the gradient overlay */
+    content: '';
+    position: fixed; /* Fixed position */
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1; /* Place it behind everything */
+    background: linear-gradient(-45deg,
+      rgba(236, 240, 241, 0.6), /* --light-gray-bg slightly transparent */
+      rgba(248, 249, 250, 0.4), /* --background-color slightly transparent */
+      rgba(236, 240, 241, 0.6),
+      rgba(52, 152, 219, 0.1) /* --secondary-color very transparent */
+    );
+    background-size: 400% 400%;
+    animation: subtleGradient 25s ease infinite;
+    opacity: 0.5; /* Keep it very subtle */
+  }
+  
+  
+  /* Animated Underline for Section Headings */
+  .publication-body h2 {
+    position: relative; /* Ensure positioning context for ::after */
+    padding-bottom: 0.75rem; /* Space for the underline */
+  }
+  
+  .publication-body h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Start from left */
+    width: 0; /* Start with zero width */
+    height: 3px;
+    background: var(--secondary-color);
+    transition: width var(--transition-speed) ease-in-out; /* Animate width */
+    border-radius: 1.5px;
+  }
+  
+  .publication-body h2:hover::after {
+    width: 50px; /* Expand to target width on hover */
+  }
+  
+  /* Animated Underline for Author Links */
+  .publication-authors a {
+     /* Remove previous border-bottom */
+     border-bottom: none;
+     position: relative; /* Needed for ::after */
+     padding-bottom: 3px; /* Space for the line */
+  }
+  
+  .publication-authors a::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Start hidden */
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    transition: width var(--transition-speed) ease;
+    border-radius: 1px;
+  }
+  
+  .publication-authors a:hover::after {
+    width: 100%; /* Expand full width on hover */
+  }
+  
+  
+  /* Enhanced Card Hover Effect */
+  #home1:hover, #home2:hover,
+  .results-carousel .item:hover,
+  .interpolation-panel:hover,
+  .publication-banner:hover,
+  .publication-video:hover {
+    transform: translateY(-6px) scale(1.01); /* Slightly more lift */
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15); /* More pronounced shadow */
+  }
+  
+  
+  /* Button Flair */
+  .link-block a,
+  button, .button { /* Apply to generic buttons too if you add them */
+     /* === Add these lines === */
+    display: inline-flex;   /* Use flex layout; inline-flex keeps button inline */
+    align-items: center;    /* Vertically center flex items (the text) */
+    justify-content: center; /* Horizontally center flex items (good practice) */
+    /* === End added lines === */
+
+
+    background: linear-gradient(45deg, var(--secondary-color), #5dade2); /* Subtle gradient */
+    color: white;
+    border: none; /* Remove border if using gradient */
+    padding: 10px 20px; /* Slightly larger padding */
+    box-shadow: var(--shadow-sm), 0 2px 4px rgba(52, 152, 219, 0.3); /* Add colored shadow */
+    transition: all var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition */
+  }
+  
+  .link-block a:hover,
+  button:hover, .button:hover {
+    background: linear-gradient(45deg, var(--accent-color), #e74c3c); /* Change gradient on hover */
+    transform: translateY(-3px) scale(1.03); /* Lift and scale */
+    box-shadow: var(--shadow-md), 0 4px 8px rgba(231, 76, 60, 0.4);
+  }
+  
+  /* Add a "pressed" effect */
+  .link-block a:active,
+  button:active, .button:active {
+    transform: translateY(-1px) scale(0.98); /* Slight press down */
+    box-shadow: var(--shadow-sm), 0 1px 2px rgba(0,0,0, 0.2); /* Reduce shadow */
+  }
+  
+  /* Footer Icon Glow */
+  .footer .icon-link:hover {
+    color: white; /* Make icon white */
+    transform: scale(1.15); /* Slightly larger scale */
+    text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color); /* Glow effect */
+    opacity: 1;
+  }
+  
+  
+  /* More Defined Venue/Awards Badges */
+  .publication-venue,
+  .publication-awards {
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-speed) ease;
+  }
+  .publication-venue:hover,
+  .publication-awards:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-md);
+  }
+  
+  /* Slider Thumb Enhancement */
+  .interpolation-panel .slider::-webkit-slider-thumb {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 2px 5px rgba(0,0,0,0.2);
+    transition: box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+  }
+  .interpolation-panel .slider::-moz-range-thumb {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 2px 5px rgba(0,0,0,0.2);
+    transition: box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+  }
+  .interpolation-panel .slider:hover::-webkit-slider-thumb,
+  .interpolation-panel .slider:active::-webkit-slider-thumb {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.3), 0 3px 7px rgba(0,0,0,0.3);
+  }
+  .interpolation-panel .slider:hover::-moz-range-thumb,
+  .interpolation-panel .slider:active::-moz-range-thumb {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.3), 0 3px 7px rgba(0,0,0,0.3);
+  }
+  
+  /* Optional: Subtle Entrance Animation for Wrapper */
+  @keyframes fadeInScaleUp {
+    from {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  #wrapper {
+    /* Add this line to apply the animation */
+    animation: fadeInScaleUp 0.6s ease-out forwards;
+  }
+
+/* === Flow Arrow Styling === */
+
+/* Base container styling */
+.flow-arrow-container {
+    text-align: center;
+    margin: 1.5rem 0;
+    line-height: 0;
+    /* Start arrows hidden, animation will show them */
+    opacity: 0;
+  }
+  
+  /* Base arrow styling */
+  .flow-arrow {
+    width: 40px;
+    height: 50px;
+    /* color: var(--primary-color, #2c3e50);
+     */
+    color: var(--secondary-color)
+    /* Removed opacity from here, controlled by container/animation */
+  }
+  
+  /* Style the parts of the SVG arrow */
+  .flow-arrow path:first-of-type {
+    stroke: currentColor;
+    fill: none;
+  }
+  .flow-arrow path:last-of-type {
+    fill: currentColor;
+    stroke: none;
+  }
+  
+  
+  /* --- Alternating Fade Animation --- */
+  
+  @keyframes alternatingFade {
+    /* Arrow is visible for the first ~40% */
+    0%, 40% {
+      opacity: 1;
+    }
+    /* Arrow fades out between 40% and 50% */
+    50% {
+      opacity: 0;
+    }
+    /* Arrow stays hidden until the end of the cycle */
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+  
+  /* Apply animation to the first arrow container */
+  .flow-arrow-container-1 {
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: alternatingFade 2s ease-in-out 0s infinite forwards;
+    /* 4s total duration, starts immediately (0s delay), loops forever */
+  }
+  
+  /* Apply the SAME animation to the second arrow container, but DELAYED */
+  .flow-arrow-container-2 {
+    animation: alternatingFade 2s ease-in-out 1s infinite forwards;
+    /* Starts halfway through the cycle (2s delay) */
+  }

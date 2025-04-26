@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Text driven 3D Neural Head model generation.">
-  <meta name="keywords" content="CLIP, text-to-3D,parametric models, NPHM, UV Parameterization">
+        content="Relightable & Editable Head Avatars from a Smartphone">
+  <meta name="keywords" content="LightHeadEd: Relightable & Editable Head Avatars from a Smartphone">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CLIP-Head: Text-Guided Generation of Textured Neural Parametric 3D Head Models</title>
+  <title>LightHeadEd: Relightable & Editable Head Avatars from a Smartphone</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -63,9 +63,10 @@
           <h1 class="subtitle has-text-centered"> </h1>
           <!-- <h1 class="subtitle has-text-centered">SIGGRAPH Asia 2023 Technical Communications</h1> -->
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <!-- <a href="https://keunhong.com">Pranav Manu</a><sup>1</sup>,</span> -->
-              Pranav Manu<sup>1</sup>,</span>  
+            <!-- <span class="author-block">
+              Pranav Manu<sup>1</sup>,</span>   -->
+              <span class="author-block">
+                <a href="https://in.linkedin.com/in/pranav-manu-baa9ab206">Pranav Manu</a><sup>1</sup>,</span>  
             <span class="author-block">
               <a href="https://sarcastitva.me/">Astitva Srivastava</a><sup>1</sup>,</span>
             <span class="author-block">
@@ -78,27 +79,22 @@
               <a href="">PJ Narayanan</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://research.iitj.ac.in/researcher/avinash-sharma">Dr. Avinash Sharma</a><sup>1</sup>,
+              <a href="https://research.iitj.ac.in/researcher/avinash-sharma">Dr. Avinash Sharma</a><sup>4</sup>,
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">CVIT, International Institute of Information Technology, Hyderabad<sup>1</sup></span>
+            <span class="author-block">CVIT, IIIT Hyderabad<sup>1</sup></span>
             <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
-          </div>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">Google Research</span><sup>2</sup>
-            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
-          </div>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">Stability AI</span><sup>3</sup>
-            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+            <span class="author-block">Google Research<sup>2</sup></span>
+            <span class="author-block">Stability AI<sup>3</sup></span>
+            <span class="author-block">IIT Jodhpur<sup>4</sup></span>
           </div>
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://arxiv.org/abs/2504.09671" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -106,14 +102,14 @@
                   <span>Paper</span>
                 </a>
               </span>
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
                   <span>Supplementary</span>
-                </a>
+                </a> -->
                 <!-- <span class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -122,7 +118,7 @@
                 </span> -->
               <!-- Video Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="#summary-section"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -137,7 +133,16 @@
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa fa-database"></i>
+                  </span>
+                  <span>Dataset (Coming Soon)</span>
                   </a>
               </span>
               <!-- Dataset Link. -->
@@ -158,203 +163,393 @@
   </div>
 </section>
 
-<section class="hero teaser">
     
+<section class="hero teaser">
   <div class="hero-body">
+
+    <!-- Teaser Image -->
     <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <!-- <h2 class="title is-3">Method Figure</h2> -->
-            <image >
-              <img src="./static/images/teaser_low.png" alt="Teaser" width="75%">
-            </image>
-        </div>
+      <div class="column is-four-fifths">
+        <img src="./static/images/teaser_low.png" alt="Teaser" width="75%">
       </div>
-      <div class="container is-max-desktop">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/base/adhiraj.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/base/ayan.mp4"
-                    type="video/mp4">
+    </div>
+
+   <!-- Container for First Carousel -->
+   <div class="container is-max-desktop">
+    <!-- IMPORTANT: Changed ID -->
+    <div id="results-carousel-1" class="carousel results-carousel">
+      <div class="item item-shiba">
+        <video poster="" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/base/sub0_in.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item item-shiba">
+        <video poster="" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/base/sub1_in.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item item-steve">
+        <video poster="" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/base/sub2_in.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item item-chair-tp">
+        <video poster="" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/base/sub3_in.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div><!-- End Container for First Carousel -->
+
+    <!-- ==== ARROW 1 ==== -->
+    <!-- Added unique class -->
+    <div class="flow-arrow-container flow-arrow-container-1">
+      <svg class="flow-arrow" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0 V22" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M7 20 L12 30 L17 20 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <!-- ================= -->
+
+    <!-- Text Block 1 -->
+    <div class="container is-max-desktop">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">LightHeadEd</span> takes polarised monocular video streams from a smartphone as input and generates Textured Gaussian Head Avatars.
+      </h2>
+    </div>
+
+    <!-- ==== ARROW 2 ==== -->
+    <!-- Added unique class -->
+    <div class="flow-arrow-container flow-arrow-container-2">
+      <svg class="flow-arrow" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0 V22" stroke="currentColor" stroke-width="2" fill="none"/>
+        <path d="M7 20 L12 30 L17 20 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <!-- ================= -->
+
+    <!-- Container for Second Carousel -->
+    <div class="container is-max-desktop">
+      <!-- IMPORTANT: Changed ID -->
+      <div id="results-carousel-2" class="carousel results-carousel">
+        <div class="item item-shiba">
+          <video poster="" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/base/sub0_our.mp4" type="video/mp4">
           </video>
         </div>
         <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/base/chirag.mp4"
-                    type="video/mp4">
+          <video poster="" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/base/sub1_our.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/aditya.mp4"
-                    type="video/mp4">
+        <div class="item item-steve">
+          <video poster="" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/base/sub2_our.mp4" type="video/mp4">
           </video>
         </div>
-        <!-- <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/5_shape.mp4"
-                    type="video/mp4">
+        <div class="item item-chair-tp">
+          <video poster="" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/base/sub3_our.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/6_shape.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/7_shape.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/8_shape.mp4"
-                    type="video/mp4">
-          </video>
-        </div> -->
       </div>
+    </div><!-- End Container for Second Carousel -->
+
+
+    <!-- Text Block 2 -->
+    <!-- <div class="container is-max-desktop">
       <h2 class="subtitle has-text-centered">
         <span class="dnerf">LightHeadEd</span> can generate 3D Relightable and Editable Head Avatars.
       </h2>
+    </div> -->
+
+  </div> <!-- End hero-body -->
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Decomposed Geometry & Reflectance as UV Maps</h2>
+          <p class="content has-text-centered">
+            <!-- All attributes of our head avatar are learnt in the texture space, which allows us to relight and edit the head avatars. -->
+            The polarised data enables the decomposition of facial reflectance in the form of albedo, normal and specular in the UV space.
+          </p>
+          <div class="publication-video">
+            <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+              <source src="static/videos/tex_maps/sub0_tex.mp4"
+                      type="video/mp4">
+            </video>
+            
+              
+          </div>
+          <!-- <div class="content">
+            <h2 class="title is-3">Extended Results</h2>
+            <image >
+              <img src="./static/images/qual_extended_compress.jpg" alt="results1" width="100%">
+            </image>
+          </div> -->
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <!-- <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+
+        <image >
+          <img src="./static/images/qual_extended_compress.jpg" alt="results1" width="75%">
+        </image>
+
+    </div>
+  </div> -->
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Environment Map based relighting</h2>
+          <p>
+            The decomposed reflectance information allows us to relight the head avatars using arbitrary environment maps.
+          </p>
+          <section class="hero is-light is-small">
+            <div class="hero-body">
+              <div class="container">
+                <div id="results-carousel" class="carousel results-carousel">
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/relight/sub3_park1.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/relight/sub3_snow1.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/relight/sub1_park.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/relight/sub1_snow1.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+          
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/relight/sub0_park1.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+          
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/relight/sub0_snow1.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 
+
+<section class="section">
+  <!-- <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+
+        <image >
+          <img src="./static/images/qual_extended_compress.jpg" alt="results1" width="75%">
+        </image>
+
+    </div>
+  </div> -->
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Texture & Shape Editing</h2>
+          <p>
+            Our method allows us to edit the appearane of the subject by modifying the albedo. Additionally, our head representation allows us to edit the facial structure by changing the shape of the underlying parametric head model.
+          </p>
+          <section class="hero is-light is-small">
+            <div class="hero-body">
+              <div class="container">
+                <div id="results-carousel" class="carousel results-carousel">
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/edit/sub1_joker.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/edit/sub1_van.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/shape/sub1_shape1.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/shape/sub1_shape2.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+          
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/edit/sub0_joker.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+          
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/edit/sub0_van.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/shape/sub0_shape1.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="item item-steve">
+                    <video poster="" id="steve" autoplay  muted loop playsinline height="100%">
+                      <source src="static/videos/shape/sub0_shape2.mp4"
+                              type="video/mp4">
+                    </video>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Re-enactment</h2>
+          <div class="publication-video">
+            <video poster="" id="steve" autoplay muted loop playsinline height="100%">
+              <source src="static/videos/react/reenactment.mp4"
+                      type="video/mp4">
+            </video>
+              
+              
+          </div>
+          <!-- <div class="content">
+            <h2 class="title is-3">Extended Results</h2>
+            <image >
+              <img src="./static/images/qual_extended_compress.jpg" alt="results1" width="100%">
+            </image>
+          </div> -->
+        </div>
+
+      </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- 
 <section class="hero is-light is-small">
   <div class="hero-body">
     
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-        <!-- <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/relight/relit_adhiraj1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/relit_ayan1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/relit_aditya1.mp4"
-                    type="video/mp4">
-          </video>
-        </div> -->
+        
          <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/relit_adhiraj2_1.mp4"
+            <source src="static/videos/relight/sub3_park1.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/relit_ayan2_1.mp4"
+            <source src="static/videos/relight/sub3_snow1.mp4"
                     type="video/mp4">
           </video>
         </div>
 
         <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/relit_aditya2_1.mp4"
+            <source src="static/videos/relight/sub1_park.mp4"
                     type="video/mp4">
           </video>
         </div>
 
         <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/relit_adhiraj2_2.mp4"
+            <source src="static/videos/relight/sub1_snow1.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/relit_ayan2_2.mp4"
+            <source src="static/videos/relight/sub0_park1.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/relit_aditya2_2.mp4"
+            <source src="static/videos/relight/sub0_snow1.mp4"
                     type="video/mp4">
           </video>
         </div>
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/relit_adhiraj2_3.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/relit_ayan2_3.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/relit_aditya2_3.mp4"
-                    type="video/mp4">
-          </video>
-        </div> 
-        
-        <!-- <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/aditya_relit_smooth.mp4"
-                    type="video/mp4">
-          </video>
-        </div> -->
-        <!-- 
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/ayan_relight_single2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/relight/ayan_relight_pink.mp4"
-                    type="video/mp4">
-          </video>
-        </div> -->
-        <!-- <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div> -->
       </div>
     </div>
   </div>
-</section>
+</section> -->
+
+
+
+    
 
 
 <section class="section">
@@ -404,120 +599,45 @@
         <!-- <h2 class="title is-3">Method Figure</h2> -->
         <div class="publication-video">
           <image >
-            <img src="./static/images/pipeline.png" alt="LightHeadEd" width="100%">
+            <img src="./static/images/encdec.png" alt="LightHeadEd" width="100%">
           </image>
         </div>
-        <image >
-          <img src="./static/images/encdec.png" alt="features" width="100%">
-        </image>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- <h2 class="title is-3">Method Figure</h2> -->
+        <div class="publication-video">
+          <image >
+            <img src="static/images/pipeline.jpg" alt="LightHeadEd" width="100%">
+          </image>
+        </div>
       </div>
     </div>
     <!--/ Paper video. -->
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">DuoPolo Dataset</h2>
+        <div class="content has-text-justified">
 
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Learnt Texture Maps</h2>
-          <p class="content has-text-justified">
-            All attributes of our head avatar are learnt in the texture space, which allows us to relight and edit the head avatars.
-          </p>
-            <image >
-              <img src="./static/images/texmaps.png" alt="results1" width="100%">
-            </image>
-            
-            
-        </div>
-        <div class="content">
-          <h2 class="title is-3">Extended Results</h2>
-          <image >
-            <img src="./static/images/qual_extended_compress.jpg" alt="results1" width="100%">
-          </image>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  </div>
-</section>
-
-<section class="section">
-  <!-- <div class="columns is-centered has-text-centered">
-    <div class="column is-four-fifths">
-
-        <image >
-          <img src="./static/images/qual_extended_compress.jpg" alt="results1" width="75%">
-        </image>
-
-    </div>
-  </div> -->
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered has-text-centered">
-      
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Shape Editing</h2>
           <p>
-            Our Method allows us to edit the facial structure, by changing the shape of the underlying flame head
+            We collect a dataset of multiple subjects performing diverse facial expressions and head movements
+            using the proposed capture process. Our approach aims to bring scalability to polarized facial performance capture
+            while significantly reducing the complexity and cost of the setup, democratizing high-quality relightable head avatar creation.   
           </p>
-          <section class="hero is-light is-small">
-            <div class="hero-body">
-              <div class="container">
-                <div id="results-carousel" class="carousel results-carousel">
-                  <div class="item item-steve">
-                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                      <source src="./static/videos/shape/adhiraj_large_h264.mp4"
-                              type="video/mp4">
-                    </video>
-                  </div>
-                  <div class="item item-steve">
-                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                      <source src="./static/videos/relight/aditya_large_h264.mp4"
-                              type="video/mp4">
-                    </video>
-                  </div>
           
-                  <div class="item item-steve">
-                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                      <source src="./static/videos/relight/ayan_large_h264.mp4"
-                              type="video/mp4">
-                    </video>
-                  </div>
-          
-                  <div class="item item-steve">
-                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                      <source src="./static/videos/relight/adhiraj_smol_h264.mp4"
-                              type="video/mp4">
-                    </video>
-                  </div>
-                  <div class="item item-steve">
-                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                      <source src="./static/videos/relight/aditya_smol_h264.mp4"
-                              type="video/mp4">
-                    </video>
-                  </div>
-                  <div class="item item-steve">
-                    <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                      <source src="./static/videos/relight/ayan_smol_h264.mp4"
-                              type="video/mp4">
-                    </video>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
+
+
+  </div> <!-- End hero-body -->
+</section>
 
 <!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
@@ -530,6 +650,67 @@
 }</code></pre>
   </div>
 </section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Comparison</h2>
+          <div class="publication-video">
+            <video poster="" id="steve" autoplay muted loop playsinline height="100%">
+              <source src="static/videos/comp/comparision_webpage.mp4"
+                      type="video/mp4">
+            </video>
+              
+              
+          </div>
+          <!-- <div class="content">
+            <h2 class="title is-3">Extended Results</h2>
+            <image >
+              <img src="./static/images/qual_extended_compress.jpg" alt="results1" width="100%">
+            </image>
+          </div> -->
+        </div>
+
+      </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+<section class="section" id="summary-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Summary Video</h2>
+          <div class="youtube-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+            <!-- <iframe 
+              width="100%" 
+              height="400" 
+              src="https://www.youtube.com/embed/VIDEO_ID" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe> -->
+            <iframe 
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+              width="100%"
+              height="400" 
+              src="https://www.youtube.com/embed/5aSw9EBOIgA?si=aAF69o89g2ms7F5H" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <footer class="footer">
